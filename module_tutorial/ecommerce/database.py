@@ -7,3 +7,6 @@ database = None
 def initialize_database():
     global database
     database = Database()
+
+def dbs():
+    print("Now dbs is available.")
