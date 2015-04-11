@@ -1,4 +1,4 @@
-from stats import StatsList
+from stats.stats import StatsList
 import unittest
 
 class TestValidInputs(unittest.TestCase):
