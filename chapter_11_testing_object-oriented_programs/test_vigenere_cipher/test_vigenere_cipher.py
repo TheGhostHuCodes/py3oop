@@ -1,5 +1,6 @@
 from vigenere_cipher import VigenereCipher
 from vigenere_cipher import combine_character
+from vigenere_cipher import separate_character
 
 def test_encode():
     cipher = VigenereCipher("TRAIN")
@@ -34,3 +35,7 @@ def test_extend_keyword_to_length_16():
     cipher = VigenereCipher("TRAIN")
     extended = cipher.extend_keyword(16)
     assert extended == "TRAINTRAINTRAINT"
+
+def test_separate_character():
+    assert separate_character("X", "T") == "E"
+    assert separate_character("E", "R") == "N"

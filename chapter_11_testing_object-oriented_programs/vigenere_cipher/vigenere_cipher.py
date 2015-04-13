@@ -20,3 +20,10 @@ def combine_character(plain_text, keyword):
     plain_index = ord(plain_text) - ord('A')
     keyword_index = ord(keyword) - ord('A')
     return chr(ord('A') + (plain_index + keyword_index) % 26)
+
+def separate_character(cypher, keyword):
+    cypher = cypher.upper()
+    keyword = keyword.upper()
+    cypher_index = ord(cypher) - ord('A')
+    keyword_index = ord(keyword) - ord('A')
+    return chr(ord('A') + (cypher_index - keyword_index) % 26)
