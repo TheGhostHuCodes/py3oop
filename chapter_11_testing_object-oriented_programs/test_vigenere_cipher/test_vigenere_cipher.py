@@ -19,3 +19,13 @@ def test_encode_lowercase():
 def test_combine_character():
     assert combine_character("E", "T") == "X"
     assert combine_character("N", "R") == "E"
+
+def test_extend_keyword_to_length_15():
+    cipher = VigenereCipher("TRAIN")
+    extended = cipher.extend_keyword(15)
+    assert extended == "TRAINTRAINTRAIN"
+
+def test_extend_keyword_to_length_16():
+    cipher = VigenereCipher("TRAIN")
+    extended = cipher.extend_keyword(16)
+    assert extended == "TRAINTRAINTRAINT"
