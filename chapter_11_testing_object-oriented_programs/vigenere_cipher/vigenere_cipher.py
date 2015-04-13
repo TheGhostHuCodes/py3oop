@@ -3,7 +3,12 @@ class VigenereCipher:
         self.keyword = keyword
 
     def encode(self, plain_text):
-        return "XECWQXUIVCRKHWA"
+        plain_text = plain_text.replace(" ", "").upper()
+        cipher = []
+        keyword = self.extend_keyword(len(plain_text))
+        for p, k in zip(plain_text, keyword):
+            cipher.append(combine_character(p, k))
+        return "".join(cipher)
 
     def extend_keyword(self, number):
         repeats = number // len(self.keyword) + 1
