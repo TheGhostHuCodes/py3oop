@@ -10,6 +10,13 @@ class VigenereCipher:
             cipher.append(combine_character(p, k))
         return "".join(cipher)
 
+    def decode(self, cipher_text):
+        plain_text = []
+        keyword = self.extend_keyword(len(cipher_text))
+        for p, k in zip(cipher_text, keyword):
+            plain_text.append(separate_character(p, k))
+        return "".join(plain_text)
+
     def extend_keyword(self, number):
         repeats = number // len(self.keyword) + 1
         return (self.keyword * repeats)[:number]
