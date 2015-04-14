@@ -2,20 +2,19 @@ class VigenereCipher:
     def __init__(self, keyword):
         self.keyword = keyword
 
+    def _code(self, text, combine_func):
+        text = text.replace(" ", "").upper()
+        combined = []
+        keyword = self.extend_keyword(len(text))
+        for p, k in zip(text, keyword):
+            combined.append(combine_func(p, k))
+        return "".join(combined)
+
     def encode(self, plain_text):
-        plain_text = plain_text.replace(" ", "").upper()
-        cipher = []
-        keyword = self.extend_keyword(len(plain_text))
-        for p, k in zip(plain_text, keyword):
-            cipher.append(combine_character(p, k))
-        return "".join(cipher)
+        return self._code(plain_text, combine_character)
 
     def decode(self, cipher_text):
-        plain_text = []
-        keyword = self.extend_keyword(len(cipher_text))
-        for p, k in zip(cipher_text, keyword):
-            plain_text.append(separate_character(p, k))
-        return "".join(plain_text)
+        return self._code(cipher_text, separate_character)
 
     def extend_keyword(self, number):
         repeats = number // len(self.keyword) + 1
