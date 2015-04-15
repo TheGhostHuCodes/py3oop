@@ -10,7 +10,3 @@ def format_string(string, formatter=None):
         formatter = DefaultFormatter()
 
     return formatter.format(string)
-
-hello_string = "hello world, how are you today?"
-print(" input: " + hello_string)
-print("output: " + format_string(hello_string))
