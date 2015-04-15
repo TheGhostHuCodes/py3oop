@@ -23,8 +23,3 @@ class Point:
         This function uses the Pythagorean Theorem to calculate the distance
         between the two points. The distance is returned as a float."""
         return math.sqrt((self.x - other.x)**2 + (self.y - other.y)**2)
-
-point = Point(3, 5)
-print(point.x, point.y)
-point2 = Point()
-print(point2.x, point2.y)
